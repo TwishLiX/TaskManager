@@ -128,7 +128,7 @@ public class MemoryScheduler {
     }
 
     public static String printMemoryBlocks() {
-        return "Memory blocks:\n" + memoryBlocks.stream().map(Object::toString)
+        return memoryBlocks.stream().map(Object::toString)
                 .collect(Collectors.joining("\n"));
     }
 }

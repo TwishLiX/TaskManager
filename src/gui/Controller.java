@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import utils.GlobalScheduler;
 
@@ -47,6 +46,9 @@ public class Controller extends Thread {
     @Override
     public void run(){
         actualProcessField.setFont(Font.font(10));
+        busyBlocksField.setFont(Font.font(10));
+        doneProcessField.setFont(Font.font(10));
+        rejectedProcessField.setFont(Font.font(10));
         while (true) {
             actualProcessField.setText(Configuration.getActualProcesses());
             rejectedProcessField.setText(Configuration.getRejectedProcesses());

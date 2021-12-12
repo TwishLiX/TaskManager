@@ -14,7 +14,7 @@ public class Main extends Application {
         Parent root = loader.load();
         controller = loader.getController();
         primaryStage.setTitle("Task Manager");
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setScene(new Scene(root, 1150, 500));
         primaryStage.show();
     }
 
@@ -22,22 +22,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-
-//import component.core.CPU;
-//import component.memory.MemoryBlock;
-//import component.memory.MemoryScheduler;
-//import config.Configuration;
-//import utils.TactGenerator;
-//
-//public class Main {
-//    public static void programStart() {
-//        CPU.initCores();
-//        MemoryScheduler.add(new MemoryBlock(0, Configuration.MEMORY_VOLUME));
-//    }
-//    public static void main(String[] args) {
-//        programStart();
-//        TactGenerator timer = new TactGenerator();
-//        timer.start();
-//        CPU.processGenerator();
-//    }
-//}

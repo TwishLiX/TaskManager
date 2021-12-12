@@ -66,31 +66,15 @@ public class Queue {
 
     public static String printActualProcesses() {
         if (actualProcesses.size() > 0) {
-            StringBuilder process = new StringBuilder();
-            char[] columns = ("ID |Name    |Priority|Duration|Memory block|Start tact|Burst time|State   |Core").toCharArray();
-            int strLen;
-            for (int i = 0; i < actualProcesses.size(); i++) {
-                strLen = Integer.toString(actualProcesses.get(i).getId()).length();
-                process.append(actualProcesses.get(i).getId());
-                for (int j = 0; j < 3; j++) {
-                    if (strLen == 3) {
-                        process.append("|");
-                        break;
-                    }
-                    else process.append(" ");
-                }
-
-            }
-
-//            return actualProcesses.stream().map(Object::toString)
-//                    .collect(Collectors.joining("\n"));
+            return actualProcesses.stream().map(Object::toString)
+                    .collect(Collectors.joining("\n"));
         }
         return "No processes\n";
     }
 
     public static String printRejectedProcesses() {
         if (rejectedProcesses.size() > 0) {
-            return "Rejected processes:\n" + rejectedProcesses.stream().map(Object::toString)
+            return rejectedProcesses.stream().map(Object::toString)
                     .collect(Collectors.joining("\n"));
         }
         return "No processes\n";
@@ -98,7 +82,7 @@ public class Queue {
 
     public static String printDoneProcesses() {
         if (doneProcesses.size() > 0) {
-            return "Done processes:\n" + doneProcesses.stream().map(Object::toString)
+            return doneProcesses.stream().map(Object::toString)
                     .collect(Collectors.joining("\n"));
         }
         return "No processes\n";
