@@ -63,7 +63,7 @@
             <Font name="Times New Roman" size="20.0" />
          </font>
       </TextArea>
-      <Text layoutX="14.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memory blocks busyness">
+      <Text layoutX="14.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memory Blocks Busyness">
          <font>
             <Font name="Cambria" size="20.0" />
          </font>

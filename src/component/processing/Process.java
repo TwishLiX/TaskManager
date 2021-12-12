@@ -93,6 +93,6 @@ public class Process {
                 ", start tact: " + startTact +
                 ", burst time: " + burstTime +
                 ", state: " + state +
-                ", core: " + core;
+                (core != -1 ? (", core: " + core) : "");
     }
 }

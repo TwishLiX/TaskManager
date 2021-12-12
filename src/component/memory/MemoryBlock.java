@@ -64,7 +64,6 @@ public class MemoryBlock {
 
     public int getMemoryVolume() {
         return memoryVolume;
-        //return end - start;
     }
 
     public void setMemoryVolume(int memoryVolume) {

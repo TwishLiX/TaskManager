@@ -56,7 +56,7 @@ public class Controller extends Thread {
             busyBlocksField.setText(Configuration.getMemoryBlocks());
             busyCoresField.setText(Configuration.getActiveCores());
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -66,9 +66,10 @@ public class Controller extends Thread {
     @FXML
     void initialize() {
         startBtn.setOnAction(event -> {
-                GlobalScheduler.programStart();
-                globalScheduler.start();
-                start();
+            startBtn.setDisable(true);
+            GlobalScheduler.programStart();
+            globalScheduler.start();
+            start();
         });
         exitBtn.setOnAction(event -> {
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();

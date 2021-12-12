@@ -25,7 +25,7 @@ public class GlobalScheduler extends Thread {
             Configuration.setMemoryBlocks(MemoryScheduler.printMemoryBlocks());
             Configuration.setActiveCores(CPU.printCores());
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
