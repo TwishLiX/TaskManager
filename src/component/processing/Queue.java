@@ -20,9 +20,9 @@ public class Queue {
         if (rejectedProcesses.size() > 1) {
             rejectedProcesses.sort(Process.byTime);
         }
-        if (rejectedProcesses.size() > 0 && !isMaxDuration(process)) {
+        if (rejectedProcesses.size() > 0 && !isMinDuration(process)) {
             process = rejectedProcesses.get(0);
-            rejectedProcesses.remove(rejectedProcesses.get(0));
+            rejectedProcesses.remove(process);
         }
         if (!MemoryScheduler.fillMemoryBlock(process)) {
             process.setState(ProcessState.WAITING);
@@ -44,8 +44,8 @@ public class Queue {
         }
     }
 
-    private static boolean isMaxDuration(Process process) {
-        return process.getDuration() > rejectedProcesses.get(0).getDuration();
+    private static boolean isMinDuration(Process process) {
+        return process.getDuration() < rejectedProcesses.get(0).getDuration();
     }
 
     public static List<Process> getActualProcesses() {

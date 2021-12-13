@@ -16,8 +16,7 @@ public class Process {
     private int burstTime;
     private ProcessState state;
     private int core;
-
-    public static Comparator<Process> byTime = (o1, o2) -> o2.duration - o1.duration;
+    public static Comparator<Process> byTime = Comparator.comparingInt(Process::getDuration);
 
     public Process(int id) {
         this.id = id;

@@ -57,43 +57,38 @@ public class MemoryScheduler {
         memoryBlocks.remove(memoryBlocks.get(index + 1));
     }
 
-    private static void freePastBlock(int index, int freeBlocksQuantity){
-        if(index == memoryBlocks.size() - 1 && memoryBlocks.get(index).getStart() == memoryBlocks.get(index - 1).getEnd()) {
-            if(memoryBlocks.get(index - 1).getState() == BlockState.EMPTY) {
+    private static void freePastBlock(int index){
+        if (index == memoryBlocks.size() - 1 && memoryBlocks.get(index).getStart() == memoryBlocks.get(index - 1).getEnd()) {
+            if (memoryBlocks.get(index - 1).getState() == BlockState.EMPTY) {
                 blockBefore(index);
-                freeBlocksQuantity++;
             }
         }
     }
 
-    private static void freeNextBlock(int index, int freeBlocksQuantity){
+    private static void freeNextBlock(int index){
         if (index == 0 && memoryBlocks.get(index).getEnd() == memoryBlocks.get(index + 1).getStart()) {
-            if(memoryBlocks.get(index + 1).getState() == BlockState.EMPTY) {
+            if (memoryBlocks.get(index + 1).getState() == BlockState.EMPTY) {
                 blockAfter(index);
-                freeBlocksQuantity++;
             }
         }
     }
 
-    private static void freeBothBlocks(int index, int freeBlocksQuantity){
-        if(index > 0 && index < memoryBlocks.size() - 1) {
-            if(memoryBlocks.get(index).getEnd() == memoryBlocks.get(index + 1).getStart() &&
+    private static void freeBothBlocks(int index){
+        if (index > 0 && index < memoryBlocks.size() - 1) {
+            if (memoryBlocks.get(index).getEnd() == memoryBlocks.get(index + 1).getStart() &&
                     memoryBlocks.get(index).getStart() == memoryBlocks.get(index - 1).getEnd()) {
                 if (memoryBlocks.get(index + 1).getState() == BlockState.EMPTY) {
                     blockAfter(index);
-                    freeBlocksQuantity++;
                 }
                 if (memoryBlocks.get(index - 1).getState() == BlockState.EMPTY) {
                     blockBefore(index);
-                    freeBlocksQuantity++;
                 }
             }
         }
     }
 
     public static void release() {
-        int freeBlocksQuantity = 0;
-        if(Queue.getActualProcesses().size() > 0) {
+        if (Queue.getActualProcesses().size() > 0) {
             memoryBlocks.sort(MemoryBlock.byEnd);
             for (int i = 0; i < Queue.getActualProcesses().size(); i++) {
                 Queue.getActualProcesses().get(i).setBurstTime(Queue.getActualProcesses().get(i).getBurstTime() + 1);
@@ -103,13 +98,13 @@ public class MemoryScheduler {
                             memoryBlocks.get(j).setState(BlockState.EMPTY);
                             memoryBlocks.get(j).setActiveProcessId(-1);
                             if (memoryBlocks.size() > 1) {
-                                freeNextBlock(j, freeBlocksQuantity);
-                                freePastBlock(j, freeBlocksQuantity);
-                                freeBothBlocks(j, freeBlocksQuantity);
+                                freeNextBlock(j);
+                                freePastBlock(j);
+                                freeBothBlocks(j);
                             }
                             CPU.getCores()[Queue.getActualProcesses().get(i).getCore() - 1].setProcessQuantity(
                                     CPU.getCores()[Queue.getActualProcesses().get(i).getCore() - 1].getProcessQuantity() - 1);
-                            if(CPU.getCores()[Queue.getActualProcesses().get(i).getCore() - 1].getProcessQuantity() == 0)
+                            if (CPU.getCores()[Queue.getActualProcesses().get(i).getCore() - 1].getProcessQuantity() == 0)
                                 CPU.getCores()[Queue.getActualProcesses().get(i).getCore() - 1].setFree(true);
                             Configuration.memoryProcessesFill -= Queue.getActualProcesses().get(i).getMemory();
                             Queue.getActualProcesses().get(i).setState(ProcessState.FINISHED);
