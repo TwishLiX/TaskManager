@@ -1,3 +1,3 @@
 # TaskManager
 
-Пояснительная записка: https://drive.google.com/file/d/1qPfqIwjAELmaLwdbd4sOK7VuZ8VZTjj5/view?usp=sharing
+Пояснительная записка: https://drive.google.com/file/d/1lL3i_ZRKephcygrW0Q2hcwJOa_lWeGih/view?usp=sharing
