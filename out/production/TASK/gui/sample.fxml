@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1150.0" style="-fx-background-color: #C0C0C0; -fx-border-color: #ffffff; -fx-border-width: 2.5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+   <children>
+      <TextArea fx:id="actualProcessField" layoutX="14.0" layoutY="108.0" prefHeight="134.0" prefWidth="555.0" style="-fx-border-color: #000000; -fx-border-width: 2.5;">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="rejectedProcessField" layoutX="14.0" layoutY="265.0" prefHeight="95.0" prefWidth="555.0" style="-fx-border-color: #000000; -fx-border-width: 2.5;">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="doneProcessField" layoutX="580.0" layoutY="128.0" prefHeight="358.0" prefWidth="555.0" style="-fx-border-color: #000000; -fx-border-width: 2.5;">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextArea>
+      <Text layoutX="14.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Actual Processes">
+         <font>
+            <Font name="Cambria" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting Processes">
+         <font>
+            <Font name="Cambria" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="580.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finished Processes">
+         <font>
+            <Font name="Cambria" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="580.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Core Busyness">
+         <font>
+            <Font name="Cambria" size="20.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="busyCoresField" layoutX="580.0" layoutY="38.0" prefHeight="65.0" prefWidth="555.0" style="-fx-border-color: #000000; -fx-border-width: 2.5;">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="startBtn" layoutX="103.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #0ee123; -fx-border-color: #FFFFFF;" text="Start" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitBtn" layoutX="300.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #ff0000; -fx-border-color: #FFFFFF;" text="Exit" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="busyBlocksField" layoutX="14.0" layoutY="383.0" prefHeight="103.0" prefWidth="555.0" style="-fx-border-color: #000000; -fx-border-width: 2.5;">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextArea>
+      <Text layoutX="14.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Memory Blocks Busyness">
+         <font>
+            <Font name="Cambria" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
